@@ -1,0 +1,40 @@
+extends base.pug
+
+block title
+    title Editar Empleado
+block container
+    .container.mt-5(style={width:'350px'})
+        h1 Editar Empleado
+        hr
+        form(action="/editarEmpleados" method="post")
+            .form-group
+                label(for="id") id Empleado
+                input#id.form-control(type="text" name="id"  readonly="readonly" value=editar[0].id)
+                br
+                br
+                label(for="idDepa") id Departamento
+                <select name="idDepa">
+                each val in datos
+                    if val.id = editar[0].idDepartamento
+                        option(value=val.id selected="selected") #{val.nombre} 
+                    else
+                        option(value=val.id) #{val.nombre} 
+                </select>
+                <br>
+                <br>
+
+                label(for="nombre") Nombre
+                input#nombre.form-control(type="text" name="nombre" value=editar[0].nombre)
+            
+            .form-group.mt-3
+                label(for="correo") Correo
+                input#correo.form-control(type="text" name="correo" value=editar[0].correo)
+                label(for="telefono") Telefono
+                input#telefono.form-control(type="text" name="telefono" value=editar[0].telefono)
+
+            .form-group.mt-3
+                .d-grid.gap-2
+                    button.btn.btn-success Actualizar
+
+                .d-grid.gap-2.mt-1
+                    a.btn.btn-danger(href="/empleados") Regresar

@@ -1,0 +1,21 @@
+extends base.pug
+
+block title
+    title Welcome
+
+block container
+    p Hola #{user.fullname}
+    h3 Apartado Departamento
+    br
+    a(href="/departamento" type="button" class="btn btn-secondary") Departamentos
+    br
+    br
+    h3 Apartado Empleados
+    br
+    br
+    a(href="/empleados" type="button" class="btn btn-primary") Empleados
+    br
+    br 
+    a(href="/logout") Logout
+    hr
+

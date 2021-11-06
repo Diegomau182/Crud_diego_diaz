@@ -1,0 +1,33 @@
+extends base.pug
+
+block title
+    title Registrar Empleado
+block container
+    .container.mt-5(style={width:'350px'})
+        h1 Registrar Empleado
+        hr
+        form(action="/agregarEmpleados" method="post")
+            .form-group
+                label(for="idDepartamento") id Departamento
+                <select name="id">
+                each val in datos
+                    option(value=val.id) #{val.nombre} 
+                </select>
+                <br>
+                <br>
+
+                label(for="nombre") Nombre
+                input#nombre.form-control(type="text" name="nombre")
+            
+            .form-group.mt-3
+                label(for="correo") Correo
+                input#correo.form-control(type="text" name="correo")
+                label(for="telefono") Telefono
+                input#telefono.form-control(type="text" name="telefono")
+
+            .form-group.mt-3
+                .d-grid.gap-2
+                    button.btn.btn-success Registrar
+
+                .d-grid.gap-2.mt-1
+                    a.btn.btn-danger(href="/empleados") Regresar

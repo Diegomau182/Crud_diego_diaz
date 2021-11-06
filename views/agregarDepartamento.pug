@@ -1,0 +1,23 @@
+extends base.pug
+
+block title
+    title Agregar Departamento
+block container
+    .container.mt-5(style={width:'350px'})
+        h1 Registrar Departamento
+        hr
+        form(action="/agregarDepartamento" method="post")
+            .form-group
+                label(for="nombre") Nombre
+                input#nombre.form-control(type="text" name="nombre")
+            
+            .form-group.mt-3
+                label(for="descripcion") Descripcion
+                textarea#descripcion.form-control(type="text" name="descripcion")
+
+            .form-group.mt-3
+                .d-grid.gap-2
+                    button.btn.btn-success Registrar
+
+                .d-grid.gap-2.mt-1
+                    a.btn.btn-danger(href="/departamento") Regresar

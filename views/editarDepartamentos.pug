@@ -1,0 +1,27 @@
+extends base.pug
+block title
+    title Editar Departamento
+block container
+    .container.mt-5(style={width:'350px'})
+        h1 Editar Departamento
+        hr
+        form(action="/editarDepartamentos" method="post")
+            .form-group
+                label(for="id") id Departamento
+                input#id.form-control(type="text" name="id" readonly="readonly" value=editar[0].id)
+
+                label(for="nombre") Nombre
+                input#nombre.form-control(type="text" name="nombre" value=editar[0].nombre)
+            
+            .form-group.mt-3
+                label(for="descripcion") Descripcion
+                textarea#descripcion.form-control(type="text" name="descripcion") #{editar[0].descripcion}
+            .form-group.mt-3(hidden="true")
+                input#activo.form-control(type="text" name="Activo" value=editar[0].Activo)
+
+            .form-group.mt-3
+                .d-grid.gap-2
+                    button.btn.btn-success Actualizar
+
+                .d-grid.gap-2.mt-1
+                    a.btn.btn-danger(href="/departamento") Regresar
